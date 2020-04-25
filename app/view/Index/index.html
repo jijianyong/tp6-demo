@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>列表页</title>
+    <link rel="stylesheet" type="text/css" href="static/layui/css/layui.css">
+    <script type="text/javascript" src="static/layui/layui.js"></script>
+    <style type="text/css">
+        .header{width:100%;height: 50px;line-height: 50px;background: #2e6da4;color:#ffffff;}
+        .title{margin-left: 20px;font-size: 20px;}
+        .userinfo{float: right;margin-right: 10px;}
+        .userinfo a{color:#ffffff;}
+        .menu{width: 200px;background:#333744;position:absolute;}
+        .main{position: absolute;left:200px;right:0px;}
+
+        .layui-collapse{border: none;}
+        .layui-colla-item{border-top:none;}
+        .layui-colla-title{background:#42485b;color:#ffffff;}
+        .layui-colla-content{border-top:none;padding:0px;}
+
+        .content span{background: #009688;margin-left: 30px;padding: 10px;color:#ffffff;}
+        .content div{border-bottom: solid 2px #009688;margin-top: 8px;}
+        .content button{float: right;margin-top: -5px;}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span class="title"><span style="font-size: 20px;">{$title}</span>--后台管理系统</span>
+        <span class="userinfo">【{$login}】<span><a href="javascript:;">退出</a></span></span>
+    </div>
+    <div class="menu" id="menu">
+        <div class="layui-collapse" lay-accordion>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">{$left[0]['title']}</h2>
+                <div class="layui-colla-content layui-show">
+                    <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                        <li class="layui-nav-item"><a href="list.html">{$left[0]['lists'][0]['title']}</a></li>
+                        <li class="layui-nav-item"><a href="list.html">{$left[0]['lists'][1]['title']}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">{$left[1]['title']}</h2>
+                <div class="layui-colla-content">
+                    <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                        <li class="layui-nav-item"><a href="list.html">{$left[1]['lists'][0]['title']}</a></li>
+                        <li class="layui-nav-item"><a href="list.html">{$left[1]['lists'][1]['title']}</a></li>
+                        <li class="layui-nav-item"><a href="list.html">{$left[1]['lists'][2]['title']}</a></li>
+                        <li class="layui-nav-item"><a href="list.html">{$left[1]['lists'][3]['title']}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">{$left[2]['title']}</h2>
+                <div class="layui-colla-content">
+                    <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                        <li class="layui-nav-item"><a href="list.html">{$left[2]['lists'][0]['title']}</a></li>
+                        <li class="layui-nav-item"><a href="list.html">{$left[2]['lists'][1]['title']}</a></li>
+                        <li class="layui-nav-item"><a href="list.html">{$left[2]['lists'][2]['title']}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main" style="padding:10px;">
+        <div class="content">
+            <span>商品列表</span>
+            <div></div>
+        </div>
+        <table class="layui-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>商品标题</th>
+                    <th>分类</th>
+                    <th>价格</th>
+                    <th>状态</th>
+                    <th>添加时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{$right[0]['id']}</td>
+                    <td>{$right[0]['title']}</td>
+                    <td>{$right[0]['cat']}</td>
+                    <td>{$right[0]['price']}</td>
+                    <td>{$right[0]['status']}</td>
+                    <td>{$right[0]['add_time']}</td>
+                </tr>
+                <tr>
+                    <td>{$right[1]['id']}</td>
+                    <td>{$right[1]['title']}</td>
+                    <td>{$right[1]['cat']}</td>
+                    <td>{$right[1]['price']}</td>
+                    <td>{$right[1]['status']}</td>
+                    <td>{$right[1]['add_time']}</td>
+                </tr>
+                <tr>
+                    <td>{$right[2]['id']}</td>
+                    <td>{$right[2]['title']}</td>
+                    <td>{$right[2]['cat']}</td>
+                    <td>{$right[2]['price']}</td>
+                    <td>{$right[2]['status']}</td>
+                    <td>{$right[2]['add_time']}</td>
+                </tr>
+                <tr>
+                    <td>{$right[3]['id']}</td>
+                    <td>{$right[3]['title']}</td>
+                    <td>{$right[3]['cat']}</td>
+                    <td>{$right[3]['price']}</td>
+                    <td>{$right[3]['status']}</td>
+                    <td>{$right[3]['add_time']}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<script>
+    layui.use(['element','layer','laypage'], function(){
+        var element = layui.element;
+        var laypage = layui.laypage;
+        $ = layui.jquery;
+        layer = layui.layer;
+        resetMenuHeight();
+    });
+    // 重新设置菜单容器高度
+    function resetMenuHeight(){
+        var height = document.documentElement.clientHeight - 50;
+        $('#menu').height(height);
+    }
+</script>
