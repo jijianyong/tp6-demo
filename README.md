@@ -22,6 +22,7 @@
 ~~~
 composer create-project topthink/think tp 6.0.*
 ~~~
+## 演示
 
 ![image](https://github.com/jijianyong/tp6-demo/blob/master/demo.gif)
 
